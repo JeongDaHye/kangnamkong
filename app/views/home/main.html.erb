@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style2.css" rel="stylesheet" type="text/css"/>
+        <title>강남콩</title>
+    </head>
+    <body>
+        <center>
+            <br><br><br><br><br><br>
+            <img src="assets/logo2.png" width="auto" height="130" alt="Boxus" /><br><br>
+            <p>로그인을 하셔야 정상적인 서비스 이용이 가능합니다.</p>
+            <p>본 강남콩 서비스는 구글 로그인 서비스를 지원합니다.</p><br>
+            <!-- 구글 로그인 폼 -->
+            <div>
+              <% if current_user %>
+                강남대학교 <strong><%= current_user.name %></strong> 학우님 반갑습니다!
+                <%= link_to "로그아웃", signout_path, id: "sign_out" %> <br>
+                <a href="/index"><font size="2">강남콩 서비스로 바로가기</font></a>
+              <% else %>
+              <div class="login-box">
+                <a href="/auth/google_oauth2" id= "sign_in"> <button class="loginBtn loginBtn--google">
+                  구글 계정으로 로그인
+                </button> </a>
+              </div>
+              <a href="/index"><font size="2">로그인 없이 둘러보기</font></a>
+              <% end %>
+            </div>
+            <div>
+            </div>
+            <!-- 구글 로그인 폼 -->
+        </center>
+    </body>
+</html>

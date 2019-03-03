@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>Like:</strong>
+  <%= @post.likes.size %> 명이 좋아합니다. 
+</p>
+ 
+ <p>  
+      <% if current_user.acts_like? (@post) %>
+      <button action='/post/<%= @post.id%>/like' method='post'>
+      좋아요 취소 </button> 
+      
+      <% else %>
+      <form action='/post/<%= @post.id%>/like' method='post'>
+      <button> 좋아요 </button>  
+      </form>
+      
+      <% end %>
+    </p>
+
+<%= like_unlike_button(@post) %>  
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

@@ -1,0 +1,94 @@
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        
+
+
+
+        <title>강남콩</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Template by Colorlib" />
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+        <meta name="author" content="Colorlib" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+
+        <link rel="shortcut icon" href="assets/favicon.png" />
+        <link rel="stylesheet" type="text/css"  href='assets/clear.css' />
+        <link rel="stylesheet" type="text/css"  href='assets/common.css' />
+        <link rel="stylesheet" type="text/css"  href='assets/font-awesome.min.css' />
+        <link rel="stylesheet" type="text/css"  href='assets/carouFredSel.css' />
+        <link rel="stylesheet" type="text/css"  href='assets/prettyPhoto.css' />
+        <link rel="stylesheet" type="text/css"  href='assets/sm-clean.css' />
+        <link rel="stylesheet" type="text/css"  href='assets/style.css' />
+
+        <!--[if lt IE 9]>
+                <script src="assets/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    
+    <body>
+      
+        <%= yield %>
+        
+        <%= csrf_meta_tags %>
+        <%= javascript_include_tag "application", media: "all", "data-turbolinks-track" => true %>
+
+        <script type="text/javascript" src="assets/jquery.js"></script>
+        <script type='text/javascript' src='assets/jquery.sticky-kit.min.js'></script>
+        <script type='text/javascript' src='assets/jquery.smartmenus.min.js'></script>
+        <script type='text/javascript' src='assets/jquery.sticky.js'></script>
+        <script type='text/javascript' src='assets/jquery.dryMenu.js'></script>
+        <script type='text/javascript' src='assets/isotope.pkgd.js'></script>
+        <script type='text/javascript' src='assets/jquery.carouFredSel-6.2.0-packed.js'></script>
+        <script type='text/javascript' src='assets/jquery.mousewheel.min.js'></script>
+        <script type='text/javascript' src='assets/jquery.touchSwipe.min.js'></script>
+        <script type='text/javascript' src='assets/jquery.easing.1.3.js'></script>
+        <script type='text/javascript' src='assets/jquery.prettyPhoto.js'></script>
+        <script type='text/javascript' src='assets/main.js'></script>
+        
+        <script language="JavaScript">
+            var clickmessage="이미지는 강남콩 서비스의 소중한 자산입니다" 
+            function disableclick(e) {
+            if (document.all) {
+            if (event.button==2||event.button==3) {
+            if (event.srcElement.tagName=="IMG"){
+            alert(clickmessage);
+            return false;
+            }
+            }
+            }
+            else if (document.layers) {
+            if (e.which == 3) {
+            alert(clickmessage);
+            return false;
+            }
+            }
+            else if (document.getElementById){
+            if (e.which==3&&e.target.tagName=="IMG"){
+            alert(clickmessage)
+            return false
+            }
+            }
+            }
+            function associateimages(){
+            for(i=0;i<document.images.length;i++)
+            document.images[i].onmousedown=disableclick;
+            }
+            if (document.all)
+            document.onmousedown=disableclick
+            else if (document.getElementById)
+            document.onmouseup=disableclick
+            else if (document.layers)
+            associateimages()
+            </script>
+
+
+        
+        
+    </body>
+    </html>
